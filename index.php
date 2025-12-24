@@ -98,6 +98,20 @@
             'link' => '#',
             'status' => 'Online'
         ],
+        [
+            'title' => 'CRUD Web SQL',
+            'description' => 'Práctica de base de datos en el navegador con creación, edición y borrado local.',
+            'stack' => ['HTML5', 'Web SQL', 'JavaScript'],
+            'link' => '/practicas/base_de_datos/index.php',
+            'status' => 'Académico'
+        ],
+        [
+            'title' => 'AJAX Aplicaciones',
+            'description' => 'Colección de ejercicios con AJAX nativo, jQuery, JSON y PHP.',
+            'stack' => ['AJAX', 'JavaScript', 'PHP'],
+            'link' => '/practicas/ajax/',
+            'status' => 'Académico'
+        ],
     ];
 
     $timeline = [
