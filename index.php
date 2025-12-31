@@ -69,34 +69,20 @@
     ];
 
     $skills = [
-        ['label' => 'PHP · CodeIgniter · Laravel', 'value' => 90],
-        ['label' => 'JavaScript · Vue · React', 'value' => 85],
-        ['label' => 'APIs REST · GraphQL', 'value' => 80],
-        ['label' => 'SQL · MySQL · PostgreSQL', 'value' => 78],
-        ['label' => 'CI/CD · Docker · AWS', 'value' => 70],
+        ['label' => 'PHP · CodeIgniter · Laravel', 'value' => 50],
+        ['label' => 'JavaScript · Vue · React', 'value' => 10],
+        ['label' => 'APIs REST · GraphQL', 'value' => 5],
+        ['label' => 'SQL · MySQL · PostgreSQL', 'value' => 60],
+        ['label' => 'CI/CD · Docker · AWS', 'value' => 30],
     ];
 
     $projects = [
-        [
-            'title' => 'Gestor de Cursos',
-            'description' => 'Plataforma para publicar, vender y administrar cursos con reportes en tiempo real.',
-            'stack' => ['CodeIgniter 4', 'MySQL', 'Tailwind', 'Livewire'],
-            'link' => '#',
-            'status' => 'Producción'
-        ],
         [
             'title' => 'Dashboard de Ventas',
             'description' => 'Panel de analítica con métricas de ventas, embudos y cohortes de clientes.',
             'stack' => ['CodeIgniter 4', 'Bootstrap', 'MySQL', 'Chart.js'],
             'link' => 'http://13.59.209.195/',
             'status' => 'MVP'
-        ],
-        [
-            'title' => 'Landing Page SaaS',
-            'description' => 'Sitio de marketing con pruebas A/B y formularios conectados a CRM.',
-            'stack' => ['Next.js', 'Vercel', 'SendGrid'],
-            'link' => '#',
-            'status' => 'Online'
         ],
         [
             'title' => 'CRUD Web SQL',
@@ -112,12 +98,26 @@
             'link' => '/practicas/ajax/',
             'status' => 'Académico'
         ],
+        [
+            'title' => 'CRUD CodeIgniter 4',
+            'description' => 'Práctica CRUD basada en guía de CodeIgniter 4 con migración, modelo y vistas.',
+            'stack' => ['PHP', 'CodeIgniter 4', 'MySQL'],
+            'link' => '/practicas/guia_crud/crudCode/public',
+            'status' => 'Académico'
+        ],
+        [
+            'title' => 'Reportes en PHP',
+            'description' => 'Reportes en PDF, Excel, CSV, HTML y Chart.js siguiendo la guía.',
+            'stack' => ['PHP', 'FPDF', 'PhpSpreadsheet', 'Chart.js'],
+            'link' => '/practicas/Reportes_php/reportes/index.php',
+            'status' => 'Académico'
+        ],
     ];
 
     $timeline = [
-        ['period' => '2023 — 2024', 'title' => 'Líder Técnico · Fintech', 'detail' => 'Diseñé arquitectura modular, pipelines CI/CD y aceleré releases semanales.'],
-        ['period' => '2021 — 2023', 'title' => 'Desarrollador Senior · SaaS B2B', 'detail' => 'Implementé APIs REST, refactoricé monolitos y lideré adopción de pruebas automatizadas.'],
-        ['period' => '2019 — 2021', 'title' => 'Full Stack · Consultoría', 'detail' => 'Entregué soluciones a medida para e‑commerce, educación y sector salud.'],
+        ['period' => '2024 — 2025', 'title' => 'Aprendizaje y manejo de Frameworks · innovador en proyectos', 'detail' => 'Diseñé un sistema de gestión de inventarios y ventas con CodeIgniter y bootstrap.'],
+        ['period' => '2022 — 2024', 'title' => 'Desarrollador Junior · C++', 'detail' => 'Ingrese a la Universidad Nacional del altiplano a la escuela profesional de ingenieria de sistemas.'],
+        ['period' => '2020 — 2022', 'title' => 'Estudiante escolar · Desarrollo en python', 'detail' => 'Comenzo mi interes por el desarrollo de software y la automatización de procesos mediante sistemas y.'],
     ];
 
     $contacts = [
@@ -172,9 +172,9 @@
         <div class="col-lg-6">
             <div class="bg-surface p-4 h-100">
                 <h2 class="h4 mb-3">Sobre mí</h2>
-                <p class="text-muted-custom">Me especializo en aplicaciones web de alto rendimiento con énfasis en buenas prácticas, observabilidad y entregas continuas. Trabajo cómodo en entornos remotos y colaborativos.</p>
+                <p class="text-muted-custom">Soy estudiante de ingeniería de sistemas en la Universidad Nacional del altiplano, soy un aficionado al desarrollo de nuevos softwares con fines altruistas  y especializo en aplicaciones web de alto rendimiento con énfasis en buenas prácticas, observabilidad y entregas continuas. Trabajo cómodo en entornos remotos y colaborativos.</p>
                 <div class="d-flex flex-wrap gap-2">
-                    <?php foreach (['Clean Code', 'DDD', 'Testing', 'Mentoría', 'Product Thinking'] as $chip): ?>
+                    <?php foreach (['Clean Code', 'Dev junior', 'Testing', 'Cooperación proactiva', 'Product Thinking'] as $chip): ?>
                         <span class="pill"><?php echo esc($chip); ?></span>
                     <?php endforeach; ?>
                 </div>
@@ -264,8 +264,12 @@
                     <p class="text-muted-custom mb-0">¿Tienes un proyecto en mente? Cuéntame tus objetivos y diseñemos la ruta técnica.</p>
                 </div>
                 <div class="d-flex gap-2">
-                    <a class="btn btn-accent" href="mailto:<?php echo esc($profile['email']); ?>">Escríbeme</a>
-                    <a class="btn btn-outline-light" href="tel:+525500000000">Agendar llamada</a>
+                    <button class="btn btn-accent" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        Escríbeme
+                    </button>
+                    <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#callModal">
+                        Agendar llamada
+                    </button>
                 </div>
             </div>
             <div class="row g-3">
@@ -282,10 +286,43 @@
     </section>
 </main>
 
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-surface">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="contactModalLabel">Escríbeme</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted-custom mb-3">¿Listo para conversar? Envíame un correo.</p>
+                <a class="btn btn-accent w-100" href="mailto:<?php echo esc($profile['email']); ?>">
+                    <?php echo esc($profile['email']); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="callModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-surface">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title" id="callModalLabel">Agendar llamada</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted-custom mb-3">¿Prefieres una llamada? Podemos coordinarla por teléfono.</p>
+                <a class="btn btn-outline-light w-100" href="tel:<?php echo esc($profile['phone']); ?>">
+                    <?php echo esc($profile['phone']); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="py-4 text-center">
     <div class="container">
-        Construido con CodeIgniter 4 y Bootstrap local · Actualiza el contenido con tus datos reales.
-    </div>
+        <p class="text-muted-custom mb-0">© 2024 <?php echo esc($profile['name']); ?>. Todos los derechos reservados.</p>
 </footer>
 
 <script src="/js/bootstrap.bundle.min.js"></script>
